@@ -1,18 +1,8 @@
+const url = "http://www.omdbapi.com/?s=%22avatar%27&apikey=bd96c9ba";
 let movies = [];
-let url = " ";
 let movieForModal = [];
-
-search.addEventListener("input", async function (e) {
-  e.preventDefault();
-  let searchValue = search.value;
-  return searchValue;
-});
-
-console.log(searchValue);
-
 const getMovie = async () => {
   try {
-    console.log(url);
     const response = await fetch(url);
     const data = await response.json();
     movies.push(data);
@@ -123,3 +113,5 @@ function openModal() {
     });
   });
 }
+
+fetchMovieInfo();
