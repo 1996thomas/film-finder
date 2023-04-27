@@ -1,39 +1,40 @@
 let movies = [];
-let url = " ";
 let movieForModal = [];
+let url = "";
 
-search.addEventListener("input", async function (e) {
-  e.preventDefault();
-  let searchValue = search.value;
-  return searchValue;
-});
+function getValue() {
+  var input = document.getElementById("in").value;
+  url = `http://www.omdbapi.com/?s=${input}&apikey=bd96c9ba`;
+  console.log(url, "first");
+  getMovie(url);
+}
 
-console.log(searchValue);
+async function getMovie(url) {
+  console.log(url, "second");
+  fetch(url)
+    .then((response) => response.json())
+    .catch(function () {
+      console.log("pas ok");
+    });
 
-const getMovie = async () => {
-  try {
-    console.log(url);
-    const response = await fetch(url);
-    const data = await response.json();
-    movies.push(data);
-  } catch (error) {
-    console.log("Erreur :", error.message);
-  }
-};
+  // console.log(response);
+  // const response = await fetch('http://www.omdbapi.com/?s=test&apikey=bd96c9ba');
+  // movies.push(data);
+}
 
 async function fetchMovieInfo() {
-  await getMovie();
-  movies[0].Search.map((movie) => {
-    title = movie.Title;
-    imdbID = movie.imdbID;
-    poster = movie.Poster;
-    if (poster === "N/A") {
-      poster = "./5058385.png";
-    }
-    year = movie.Year;
-    displayCard();
-  });
-  openModal();
+  console.log(url, "third");
+  // movies.map((movie) => {
+  //   title = movie.Title;
+  //   imdbID = movie.imdbID;
+  //   poster = movie.Poster;
+  //   if (poster === "N/A") {
+  //     poster = "./5058385.png";
+  //   }
+  //   year = movie.Year;
+  //   displayCard();
+  // });
+  // openModal();
 }
 
 function createCard() {
@@ -66,7 +67,7 @@ function displayCard() {
   cardYear.appendChild(cardYearText);
   createCard();
 
-  movies[0].Search.map((movie) => {
+  movies.Search.map((movie) => {
     img.src = poster;
     cardContent.append(cardTitle, cardYear, cardCTA);
   });
@@ -123,3 +124,5 @@ function openModal() {
     });
   });
 }
+
+// });
