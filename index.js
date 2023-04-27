@@ -1,6 +1,13 @@
-const url = "http://www.omdbapi.com/?s=%22avatar%27&apikey=bd96c9ba";
+let url = `http://www.omdbapi.com/?s=%22avatar%27&apikey=bd96c9ba`;
+let input = prompt("Choisir un film");
 let movies = [];
 let movieForModal = [];
+url = `http://www.omdbapi.com/?s=%22${input}%27&apikey=bd96c9ba`;
+
+searchButton.addEventListener('click', function(e){
+  window.location.reload()
+})
+
 const getMovie = async () => {
   try {
     const response = await fetch(url);
