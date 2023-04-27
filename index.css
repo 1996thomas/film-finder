@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  height: 80px;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav input {
+  background-color: white;
+  border: 1px solid lightgray;
+  padding: .3em .5em;
+}
+
+main {
+  width: 80vw;
+  margin: 0 auto;
+  margin-top: 5em;
+}
+
+.auto-grid {
+  --min-column-size: 25rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(var(--min-column-size), 100%), 1fr)
+  );
+}
+.card {
+  font-size: 1rem;
+  display: flex;
+  border: 1px solid lightgray;
+  border-radius: 1em;
+  max-width: 30em;
+  width: 100%;
+  height: fit-content;
+  align-items: center;
+}
+
+.card h2 {
+  width: 13em;
+  font-size: 1.2em;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.card h3 {
+  font-size: 1em;
+}
+
+.card__image {
+  flex: 1;
+  display: flex;
+  max-width: 100%;
+  min-height: 208px;
+}
+
+.card__content {
+  flex: 2;
+  min-height: 100%;
+  padding-left: 2em;
+  padding-right: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  align-items: first baseline;
+}
+
+.card__image img {
+  height: auto;
+  width: 100%;
+  border-bottom-left-radius: 1em;
+  border-top-left-radius: 1em;
+  object-fit: cover;
+  object-position: center;
+}
+
+button {
+  font-size: 1.2em;
+  padding: 0.5em;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 0.5em;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 700px;
+  max-height: 360px;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  border: 1px solid lightgray;
+  background-color: white;
+  border-radius: 0.8rem;
+  box-shadow: -1px -1px 199px 13px rgba(0, 0, 0, 0.75);
+}
+
+.modal--show {
+  display: flex;
+}
+
+.modal__image {
+  flex: 1;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.modal__content {
+  flex: 2;
+  height: 100%;
+  margin: 1em 1em;
+}
+
+.modal__content h2 {
+  margin: 1em 0;
+}
+
+.modal__image img{
+  max-height: 360px;
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+  
+}
+
+.modal__close {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  border: 2px solid black;
+  border-radius: 50%;
+  right: 10px;
+  top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__close::after {
+  content: "X";
+  color: black;
+  font-weight: 700;
+}
